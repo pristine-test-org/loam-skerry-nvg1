@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How Garnet works</title>
+    <style>
+      :root { font-family: system-ui, sans-serif; color: #1c1c1c; background: #fafaf7; --accent: #2f7d4f; }
+      body { margin: 0; }
+      header, footer { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1rem; }
+      main { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1rem; }
+      header { display: flex; justify-content: space-between; align-items: center; }
+      .mark { font-weight: 700; color: var(--accent); text-decoration: none; }
+      /* Intentional, for Impeccable's test drive: link text under the 11px floor. */
+      header a.back { font-size: 10px; color: var(--accent); }
+      h1 {
+        font-size: clamp(2rem, 6vw, 3rem); margin: 2rem 0 1rem;
+        /* Intentional, for Impeccable's test drive: gradient text on the heading. */
+        background: linear-gradient(90deg, #2f7d4f, #7ad1a0);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      /* Intentional, for Impeccable's test drive: body text flush with the viewport edge, no background or padding. */
+      .edge { max-width: none; margin: 0 -1rem; padding: 0; line-height: 1.6; }
+      /* Intentional, for Impeccable's test drive: low-contrast light grey text (about 1.6:1). */
+      .aside { color: #d4d4cf; line-height: 1.6; }
+      .steps { display: grid; gap: 0.75rem; padding: 0; list-style: none; margin: 1.5rem 0; }
+      .steps li { background: #fff; border: 1px solid #e5e5e0; border-radius: 0.5rem; padding: 0.9rem 1rem; }
+      .steps strong { display: block; margin-bottom: 0.25rem; }
+      .meter { height: 0.5rem; background: #e5e5e0; border-radius: 0.25rem; margin: 1rem 0 0.25rem; }
+      .meter span {
+        display: block; height: 100%; width: 40%; background: #1f5fbf; border-radius: 0.25rem;
+        /* Intentional, for Impeccable's test drive: transition on a layout property (width), and an off-palette blue. */
+        transition: width 0.3s;
+      }
+      .meter:hover span { width: 100%; }
+      footer { color: #777; font-size: 0.9rem; border-top: 1px solid #e5e5e0; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="/">Garnet</a>
+      <a class="back" href="/">Back to the front door</a>
+    </header>
+    <main>
+      <h1>How Garnet works</h1>
+      <p class="edge">Garnet keeps one shared list for the whole household, and the front door shows the five newest entries the moment you arrive.</p>
+      <ol class="steps">
+        <li><strong>Add an entry</strong>Anyone with the link can put a new item on the shared list.</li>
+        <li><strong>See it at once</strong>The front door reads the list live, so nothing needs refreshing by hand.</li>
+        <li><strong>Tick it off</strong>Finished items stay visible with a check mark until they scroll away.</li>
+      </ol>
+      <div class="meter" aria-label="Typical list progress: 2 of 5 done"><span></span></div>
+      <p class="aside">Most lists are around two fifths done by mid-week.</p>
+    </main>
+    <footer>Garnet · the calm front door to your shared list</footer>
+  </body>
+</html>
