@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reading the Whimbrel board</title>
+    <style>
+      :root { font-family: system-ui, sans-serif; color: #1c1c1c; background: #fafaf7; --accent: #3b4bc8; }
+      body { margin: 0; }
+      header, main, footer { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1rem; }
+      header { display: flex; justify-content: space-between; align-items: center; }
+      .mark { font-weight: 700; color: var(--accent); text-decoration: none; }
+      /* Intentional, for Impeccable's test drive: link text under the 11px floor. */
+      header a.back { font-size: 10px; color: var(--accent); }
+      h1 {
+        font-size: clamp(2rem, 6vw, 3rem); margin: 2rem 0 1rem;
+        /* Intentional, for Impeccable's test drive: gradient text on the heading. */
+        background: linear-gradient(90deg, #3b4bc8, #c46ad8);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      /* Intentional, for Impeccable's test drive: body text flush with the viewport edge, no background or padding. */
+      .edge { max-width: none; margin: 0 -1rem; padding: 0; line-height: 1.6; }
+      /* Intentional, for Impeccable's test drive: low-contrast light grey text (about 1.6:1). */
+      .aside { color: #d4d4cf; line-height: 1.6; }
+      table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #fff; }
+      th, td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid #e5e5e0; }
+      th { font-size: 0.85rem; color: #555; }
+      .bar { height: 0.5rem; background: #e5e5e0; border-radius: 0.25rem; margin: 1rem 0 0.25rem; }
+      .bar span {
+        display: block; height: 100%; width: 60%; background: #d9480f; border-radius: 0.25rem;
+        /* Intentional, for Impeccable's test drive: transition on a layout property (width), and an off-palette orange. */
+        transition: width 0.3s;
+      }
+      .bar:hover span { width: 100%; }
+      footer { color: #777; font-size: 0.9rem; border-top: 1px solid #e5e5e0; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="/">Whimbrel</a>
+      <a class="back" href="/">Back to the board</a>
+    </header>
+    <main>
+      <h1>Reading the Whimbrel board</h1>
+      <p class="edge">The board lists the latest entries on the shared list, newest first, so you can see what changed since you last looked.</p>
+      <table>
+        <thead><tr><th>Marker</th><th>Meaning</th><th>Shown</th></tr></thead>
+        <tbody>
+          <tr><td>Plain text</td><td>Still to do</td><td>Newest five</td></tr>
+          <tr><td>✓ prefix</td><td>Done</td><td>Newest five</td></tr>
+          <tr><td>Grey line</td><td>Empty or unreachable list</td><td>Always</td></tr>
+        </tbody>
+      </table>
+      <div class="bar" aria-label="Typical board progress: 3 of 5 done"><span></span></div>
+      <p class="aside">A typical board is about three fifths done by Friday.</p>
+    </main>
+    <footer>Whimbrel · the shared list board, at a glance</footer>
+  </body>
+</html>
